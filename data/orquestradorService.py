@@ -8,7 +8,7 @@ class OrquestradorService:
     def __init__(self):
         # openai.api_key = 'your-api-key'
         # self.openai_client = OpenAI(api_key=os.environ.OPENAI_API_KEY)
-        self.openai_client = OpenAI(api_key='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')
+        self.openai_client = OpenAI(api_key='chave-teste')
         
     def add_insight_to_file(self, insight):
         file_path='insights.json'
