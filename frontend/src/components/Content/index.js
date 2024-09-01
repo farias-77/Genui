@@ -165,7 +165,7 @@ export default function Content() {
             {
                 label: "R$",
                 data: [10, 12, 15, 13, 18, 20, 25, 22, 27, 30],
-                borderColor: "rgba(75, 192, 192, 1)",
+                borderColor: "#5D63F1",
                 borderWidth: 2,
                 fill: false,
                 tension: 0.1,
