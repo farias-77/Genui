@@ -177,12 +177,42 @@ class OrquestradorService:
     
     async def get_investment_possibilities(self):
         # chamada a uma api / bd para LLM entender as possibilidades de investimento
-        return 
+        return [
+            {
+                'title': 'renda fixa com ativos imobiliários',
+                'minimum_amount': 1000,
+                'rentability': 0.0125,
+                'deadline': '3 months'
+            },
+            {
+                'title': 'renda fixa com ativos imobiliários',
+                'minimum_amount': 1000,
+                'rentability': 0.0165,
+                'deadline': '6 months'
+            },
+            {
+                'title': 'renda fixa com ativos imobiliários',
+                'minimum_amount': 1000,
+                'rentability': 0.0155,
+                'deadline': '4 months'
+            },
+            {
+                'title': 'cryptoativos de alta volatilidade ',
+                'minimum_amount': 10000,
+                'rentability': 0.0225,
+                'deadline': '12 months'
+            },
+            
+        ]
     
     async def get_financial_maneuvers():
         # lê bd para entender o caixa atual, 
+        investment_possibilities = await self.get_investment_possibilities()
         # lê faturas a serem pagas antecipadamente
+        early_invoices = await get_early_invoice_insight()
         # lê faturas a serem antecipadas
+        early_receivements = await get_early_receivements()
+        
         prompt = ''
         
         response = await self.interact_gpt(prompt)
@@ -199,20 +229,6 @@ class OrquestradorService:
         # gera string pra interação com gpt
         return
     
-    async def trigger_financial_maneuvers():
-        
-        possibilities = await self.get_financial_maneuvers()
-        
-        maneuvers = []
-        
-        for possibility in possibilities:
-            maneuver = await self.calc_profit_for_maneuver(possibility)
-            maneuvers.append(maneuver)
-            
-        # ordena as manobras
-        
-        # manobra como insight 
-        
     async def generate_financial_maneuvers_insight(self, insight_object):
         prompt = (
             "Você é um assistente focado em gerar insights para otimizar o controle financeiro de uma empresa. "
@@ -232,7 +248,20 @@ class OrquestradorService:
             'reason': reason
         }
         
-    
+    async def trigger_financial_maneuvers():
+        
+        possibilities = await self.get_financial_maneuvers()
+        
+        maneuvers = []
+        
+        for possibility in possibilities:
+            maneuver = await self.calc_profit_for_maneuver(possibility)
+            maneuvers.append(maneuver)
+            
+        # ordena as manobras
+        
+        # manobra como insight 
+        return await self.generate_financial_maneuvers_insight()
     
     
     async def get_raw_material(self):
