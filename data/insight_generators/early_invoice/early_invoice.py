@@ -2,8 +2,8 @@ import pandas as pd
 import pytz
 from datetime import datetime
 
-invoices_data_path = "../../resource/invoice.csv"
-invoices_log_data_path = "../../resource/invoice-log.csv"
+invoices_data_path = "./resource/invoice.csv"
+invoices_log_data_path = "./resource/invoice-log.csv"
 year = 2024
 month = 8
 day = 20
@@ -65,11 +65,13 @@ def select_invoices(eligible_invoices):
     return summary
 
 def get_early_invoice_insight():
+    print("cheguei aqui vai tomar no cu allan")
     invoices = read_data(invoices_data_path)
     invoices_clean = preprocess_data(invoices, year, month, day)
     invoices_clean = calculate_savings(invoices_clean, discount_rate)
     eligible_invoices = apply_insight_generation(invoices_clean, due_days_threshold)
     early_invoice_insight = select_invoices(eligible_invoices)
+    
     return early_invoice_insight
 
 if __name__ == "__main__":
