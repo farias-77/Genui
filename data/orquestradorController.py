@@ -1,5 +1,6 @@
 # controller.py
 import os
+import json
 from fastapi import APIRouter
 from orquestradorService import OrquestradorService
 
@@ -22,3 +23,17 @@ controller = OrquestradorController()
 @router.post("/insight")
 async def create_insight(insight_object: dict):
     return await controller.init_flow_of_insights(insight_object)
+
+@router.get("/fetch_insights")
+async def get_insight():
+    file_path = "insights.json"
+    
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            insights = json.load(file)
+    except FileNotFoundError:
+        return {"error": "File not found"}
+    except json.JSONDecodeError:
+        return {"error": "Error decoding JSON"}
+    
+    return insights
