@@ -2,7 +2,7 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import LabelEncoder
 
-model_filename = 'payment_classification_model.pkl'
+model_filename = './insight_generators/default_analysis/payment_classification_model.pkl'
 model = joblib.load(model_filename)
 
 le_customer = LabelEncoder()
@@ -34,10 +34,14 @@ def get_top_5_clients_with_most_late_records(df):
     return insight
 
 def get_default_insight():
-    file_path = "synthetic_payment_data_past_6_months.csv"
+    file_path = "./insight_generators/default_analysis/synthetic_payment_data_past_6_months.csv"
     df = load_and_prepare_data(file_path)
     default_insight = get_top_5_clients_with_most_late_records(df)
-    return default_insight
+
+    return {
+        "type": 'possible defaults',
+        "content": default_insight
+    }
 
 if __name__ == "__main__":
     insight = get_default_insight()
