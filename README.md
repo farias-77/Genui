@@ -1,5 +1,4 @@
-<h1 align="center">GenUI</h1>
-<p align="center"><b>S</b></p>
+
 <p align="center">
     <img src="./assets/fundobranco.png" alt="GenUI"/>
 </p>
