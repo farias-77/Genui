@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-
 import { RiAccountCircleLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
-
 import {
     Container,
     GeneratedContent,
@@ -21,14 +19,12 @@ import {
     StyledLoadingScreen,
 } from "./styles";
 import { MutatingDots } from "react-loader-spinner";
-
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2"; // Usar o Bar do react-chartjs-2
 import {
     Chart as ChartJS,
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement, // Registrar o BarElement
     Title,
     Tooltip,
     Legend,
@@ -37,8 +33,7 @@ import {
 ChartJS.register(
     CategoryScale,
     LinearScale,
-    PointElement,
-    LineElement,
+    BarElement, // Registrar o BarElement
     Title,
     Tooltip,
     Legend
@@ -72,10 +67,8 @@ export default function Content() {
         },
     ]);
     const [visibleCards, setVisibleCards] = useState([]);
-
     const [sections, setSections] = useState([1, 2, 3, 4]);
     const [visibleSections, setVisibleSections] = useState([]);
-
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -118,7 +111,6 @@ export default function Content() {
         const dataAtual = new Date();
         const dia = dataAtual.getDate();
         const mes = meses[dataAtual.getMonth()];
-
         return `${dia} ${mes}`;
     }
 
@@ -137,38 +129,57 @@ export default function Content() {
             "novembro",
             "dezembro",
         ];
-
         const dataAtual = new Date();
         const dataAmanha = new Date(dataAtual);
         dataAmanha.setDate(dataAtual.getDate() + 1);
-
         const dia = dataAmanha.getDate();
         const mes = meses[dataAmanha.getMonth()];
+        return `${dia} de ${mes}`;
+    }
 
+    function getNextMonthDayMonth() {
+        const meses = [
+            "janeiro",
+            "fevereiro",
+            "março",
+            "abril",
+            "maio",
+            "junho",
+            "julho",
+            "agosto",
+            "setembro",
+            "outubro",
+            "novembro",
+            "dezembro",
+        ];
+        const dataAtual = new Date();
+        const dataProximoMes = new Date(dataAtual);
+        dataProximoMes.setMonth(dataAtual.getMonth() + 1);
+        const dia = dataProximoMes.getDate();
+        const mes = meses[dataProximoMes.getMonth()];
         return `${dia} de ${mes}`;
     }
 
     const chartData = {
         labels: [
             "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
-            "01/08",
+            "02/08",
+            "03/08",
+            "04/08",
+            "05/08",
+            "06/08",
+            "07/08",
+            "08/08",
+            "09/08",
+            "10/08",
         ],
         datasets: [
             {
-                label: "R$",
+                label: "Receitas e Despesas",
                 data: [10, 12, 15, 13, 18, 20, 25, 22, 27, 30],
+                backgroundColor: "rgba(75, 192, 192, 0.6)",
                 borderColor: "rgba(75, 192, 192, 1)",
                 borderWidth: 2,
-                fill: false,
-                tension: 0.1,
             },
         ],
     };
@@ -177,22 +188,11 @@ export default function Content() {
         responsive: true,
         maintainAspectRatio: false,
         scales: {
-            x: {
-                grid: {
-                    display: false, // Remove grid lines on the x-axis
-                },
-            },
-            y: {
-                grid: {
-                    display: false, // Remove grid lines on the y-axis
-                },
-                beginAtZero: true, // Start y-axis at zero (optional)
-            },
+            x: { grid: { display: false } },
+            y: { grid: { display: false }, beginAtZero: true },
         },
         plugins: {
-            legend: {
-                display: false, // Hide the legend (optional)
-            },
+            legend: { display: false },
         },
     };
 
@@ -225,23 +225,21 @@ export default function Content() {
                     </Header>
                     <Suggestions>
                         <div>
-                            {cards.map((card, index) => {
-                                return (
-                                    <Suggestion
-                                        key={index}
-                                        visible={visibleCards.includes(index)}
-                                    >
-                                        <h1>{card.title}</h1>
-                                        <p>{card.description}</p>
+                            {cards.map((card, index) => (
+                                <Suggestion
+                                    key={index}
+                                    visible={visibleCards.includes(index)}
+                                >
+                                    <h1>{card.title}</h1>
+                                    <p>{card.description}</p>
+                                    <div>
+                                        <p>{card.action}</p>
                                         <div>
-                                            <p>{card.action}</p>
-                                            <div>
-                                                <FaArrowRight />
-                                            </div>
+                                            <FaArrowRight />
                                         </div>
-                                    </Suggestion>
-                                );
-                            })}
+                                    </div>
+                                </Suggestion>
+                            ))}
                         </div>
                     </Suggestions>
                 </GeneratedContent>
@@ -280,29 +278,9 @@ export default function Content() {
                             </GrayBox>
                         </div>
                     </Balance>
-                    <DaySummary isVisible={visibleSections.includes(3)}>
-                        <h1>Fechamento</h1>
-                        <div>
-                            <GrayBox
-                                width="49%"
-                                height="80px"
-                                flexDirection="column"
-                                alignItems="flex-start"
-                            >
-                                <h3>Último fechamento</h3>
-                                <h3>R$ 1.000,00</h3>
-                            </GrayBox>
-                            <GrayBox
-                                width="49%"
-                                height="80px"
-                                flexDirection="column"
-                                alignItems="flex-start"
-                            >
-                                <h3>Previsão de fechamento para hoje</h3>
-                                <h3>R$ 1.000,00</h3>
-                            </GrayBox>
-                        </div>
-                    </DaySummary>
+                    <ChartData>
+                        <Bar data={chartData} options={options} />
+                    </ChartData>
                     <Predictions isVisible={visibleSections.includes(4)}>
                         <h1>
                             Previsões para amanhã{" "}
@@ -323,16 +301,32 @@ export default function Content() {
                             </div>
                         </div>
                     </Predictions>
-                    <ChartData>
-                        <Line data={chartData} options={options} />
-                    </ChartData>
+                    <Predictions isVisible={visibleSections.includes(4)}>
+                        <h1>
+                            Previsões para daqui a 1 mês{" "}
+                            <span>{getNextMonthDayMonth()}</span>
+                        </h1>
+                        <div>
+                            <div>
+                                <h2>Fechamento</h2>
+                                <GrayBox>R$209.078</GrayBox>
+                            </div>
+                            <div>
+                                <h2>Entradas</h2>
+                                <GrayBox>R$159.078</GrayBox>
+                            </div>
+                            <div>
+                                <h2>Saídas</h2>
+                                <GrayBox>R$50.000</GrayBox>
+                            </div>
+                        </div>
+                    </Predictions>
                 </AccountSummary>
             </Container>
-
             <StyledLoadingScreen display={isLoading}>
                 <LoadingContent>
                     <LoadingMessage>
-                        Estamos montando a sua interface personalizada...
+                        Estamos gerando a sua interface personalizada...
                     </LoadingMessage>
                     <MutatingDots
                         visible={true}
