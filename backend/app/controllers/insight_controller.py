@@ -8,9 +8,9 @@ router = APIRouter(
 
 @router.get("/")
 async def get_insights():
-    """
-    Endpoint para retornar a lista de insights gerados pelo CFO as a Service.
-    """
+    
+    insight = ""
+
     try:
         insights = generate_insights()
         return insights

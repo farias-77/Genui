@@ -3,3 +3,7 @@
 venv
 resource
 __pycache__
+<<<<<<< Updated upstream
+=======
+*/data/*
+>>>>>>> Stashed changes
