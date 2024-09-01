@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+    data:
+        build:
+            context: ./data
+            dockerfile: Dockerfile
+        container_name: data_service
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./data:/app
+        networks:
+            - my_network
+
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        container_name: frontend_service
+        ports:
+            - "3000:80"
+        networks:
+            - my_network
+
+networks:
+    my_network:
+        driver: bridge

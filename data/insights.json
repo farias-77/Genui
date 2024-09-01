@@ -1,23 +1,25 @@
 [
     {
         "title": "Pague antecipadamente",
-        "description": "É recomendável que a empresa realize os pagamentos antecipados das seguintes faturas para obter uma economia total considerável: Fatura 5396358798245888 (vence em 2024-08-25, com saving de R$ 187760.82), Fatura 6019609152978944 (vence em 2024-08-27, com saving de R$ 136615.62), Fatura 4666043431649280 (vence em 2024-08-27, com saving de R$ 76791.68), Fatura 6055826129158144 (vence em 2024-08-25, com saving de R$ 19341.30) e Fatura 6395656021213184 (vence em 2024-08-23, com saving de R$ 5518.36).",
+        "description": "É recomendável que antecipe o pagamento de determinadas faturas, resultando em uma economia total de R$ 425.027,78, que pode ser reinvestida em produtos de renda fixa.",
         "action": {
-            "type": "invoice early payment"
+            "type": "Antecipar pagamentos"
         },
         "reason": "A antecipação dos pagamentos dessas faturas permitirá à empresa economizar um valor total de R$ 425027.78. Esta prática não apenas melhora a saúde financeira ao reduzir despesas, mas também libera recursos que podem ser reinvestidos em outras áreas estratégicas."
     },
     {
         "title": "Oportunidade de Compra",
-        "description": "Atualmente, há uma oportunidade de compra para otimizar nossos custos financeiros devido a uma queda momentânea no preço da carne. Temos diversos recebíveis de vale refeição a serem pagos em breve, com datas próximas e valores substanciais. Os mais próximos incluem:\n- Recebível REC00003: R$ 45,221.39 em 01-10-2024\n- Recebível REC00012: R$ 23,656.00 em 01-10-2024\n- Recebível REC00021: R$ 47,944.39 em 03-10-2024\n- Recebível REC00004: R$ 48,603.40 em 07-10-2024\n- Recebível REC00018: R$ 31,975.39 em 07-10-2024.",
-        "action": null,
+        "description": "Há uma oportunidade de otimizar custos financeiros antecipando os recebíveis de VR devido à queda momentânea no preço da carne.",
+        "action": {
+            "type": "Antecipar recebíveis"
+        },
         "reason": "A antecipação desses recebíveis, mesmo com uma taxa de desconto para a operadora, pode ser vantajosa devido à queda momentânea no preço da carne. Aproveitar essa oportunidade de compra com preços reduzidos pode gerar economia significativa, compensando a taxa de antecipação e proporcionando melhores margens de lucro no período subsequente."
     },
     {
         "title": "Atenção ao Fluxo de Caixa para a Próxima Semana",
-        "description": "Na próxima semana, você possui pagamentos a receber de clientes que possuem alto risco de inadimplência, com um alto número de registros de atraso. Estes clientes incluem: Cliente 7 (545 registros de atraso), Cliente 57 (518 registros de atraso), Cliente 90 (516 registros de atraso), Cliente 24 (511 registros de atraso), e Cliente 73 (507 registros de atraso).",
+        "description": "Na próxima semana, você possui um pagamento a receber do Cliente 7, que apresenta muitos registros de atraso e alto risco de inadimplência.",
         "action": {
-            "type": "plan cash flow"
+            "type": "Planeje seu caixa"
         },
         "reason": "Devido ao elevado número de registros de atraso desses clientes, é crucial que você planeje cuidadosamente o seu fluxo de caixa para a próxima semana. A inadimplência desses clientes pode afetar significativamente a sua liquidez e capacidade de cumprir com suas obrigações financeiras. Recomenda-se monitorar de perto esses recebíveis, tomar medidas preventivas, como reavaliar os prazos de crédito e buscar alternativas de mitigação de riscos para garantir a saúde financeira da empresa."
     }
