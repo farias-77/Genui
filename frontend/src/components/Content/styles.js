@@ -187,8 +187,6 @@ export const Profile = styled.div`
     justify-content: flex-end;
     align-items: center;
 
-    margin-top: 50px;
-
     h1 {
         font-size: 1.2rem;
         font-weight: 500;
@@ -309,6 +307,22 @@ export const Predictions = styled.div`
                 margin-bottom: 5px;
             }
         }
+    }
+`;
+
+export const ChartData = styled.div`
+    width: 100%;
+    height: 30%;
+
+    position: relative;
+
+    margin-top: 20px;
+
+    canvas {
+        display: block;
+
+        width: 100% !important;
+        height: 100% !important;
     }
 `;
 

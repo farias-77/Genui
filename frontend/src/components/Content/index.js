@@ -13,7 +13,30 @@ import {
     GrayBox,
     DaySummary,
     Predictions,
+    ChartData,
 } from "./styles";
+
+import { Line } from "react-chartjs-2";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from "chart.js";
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 export default function Content() {
     function getFormattedCurrentDate() {
@@ -63,6 +86,54 @@ export default function Content() {
 
         return `${dia} de ${mes}`;
     }
+
+    const chartData = {
+        labels: [
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+            "01/08",
+        ],
+        datasets: [
+            {
+                label: "R$",
+                data: [10, 12, 15, 13, 18, 20, 25, 22, 27, 30],
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 2,
+                fill: false,
+                tension: 0.1,
+            },
+        ],
+    };
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            x: {
+                grid: {
+                    display: false, // Remove grid lines on the x-axis
+                },
+            },
+            y: {
+                grid: {
+                    display: false, // Remove grid lines on the y-axis
+                },
+                beginAtZero: true, // Start y-axis at zero (optional)
+            },
+        },
+        plugins: {
+            legend: {
+                display: false, // Hide the legend (optional)
+            },
+        },
+    };
 
     return (
         <Container>
@@ -183,6 +254,9 @@ export default function Content() {
                         </div>
                     </div>
                 </Predictions>
+                <ChartData>
+                    <Line data={chartData} options={options} />
+                </ChartData>
             </AccountSummary>
         </Container>
     );
