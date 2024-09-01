@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import List
 from ..models import Transfer
-from ..database.transfer import get_transfers  # Certifique-se de que esta importação está correta
+from ..database import get_transfers  # Certifique-se de que esta importação está correta
 
 router = APIRouter(
     prefix="/transfers",
