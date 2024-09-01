@@ -1,6 +1,7 @@
 from pydantic import BaseModel
 from typing import Optional
 
+
 class CorporatePurchase(BaseModel):
     id: int
     purchase_cardId: Optional[str]

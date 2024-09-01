@@ -1,17 +1,12 @@
 from fastapi import FastAPI
-from app.routers.corporate_purchase import router as corporate_purchase_router
-from app.routers.transaction import router as transaction_router
-from app.routers.transfer import router as transfer_router
-from app.routers.invoice import router as invoice_router
+from app.controllers import insight_controller, open_finance_controller
 
 app = FastAPI()
 
-# Incluindo os routers para cada tipo de dado
-app.include_router(corporate_purchase_router)
-app.include_router(transaction_router)
-app.include_router(transfer_router)
-app.include_router(invoice_router)
+# Registrando os controladores
+app.include_router(insight_controller.router)
+app.include_router(open_finance_controller.router)
 
-@app.get("/")
-def read_root():
-    return {"message": "Open Finance Backend API is running"}
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)

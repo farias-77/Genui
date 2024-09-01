@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import List
 from ..models import Invoice
-from ..database.invoice import get_invoices
+from ..database import get_invoices
 
 router = APIRouter(
     prefix="/invoices",
