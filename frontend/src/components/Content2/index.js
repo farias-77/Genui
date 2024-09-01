@@ -178,7 +178,7 @@ export default function Content() {
                 label: "Receitas e Despesas",
                 data: [10, 12, 15, 13, 18, 20, 25, 22, 27, 30],
                 backgroundColor: "rgba(93, 99, 241, 0.6)",
-                borderColor: "rgba(93, 99, 241, 0.4)",
+                borderColor: "rgba(93, 99, 241, 0.4 )",
                 borderWidth: 2,
             },
         ],
