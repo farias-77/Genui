@@ -143,7 +143,7 @@ export const Suggestions = styled.div`
 
 export const Suggestion = styled.div`
     width: 100%;
-    height: 150px;
+    height: 200px;
 
     display: flex;
     flex-direction: column;
@@ -175,6 +175,8 @@ export const Suggestion = styled.div`
         font-weight: 300;
         color: #000;
         text-align: justify;
+
+        text-overflow: ellipsis;
     }
 
     //footer
@@ -441,7 +443,7 @@ export const StyledLoadingScreen = styled.div`
     width: 100%;
     height: 100%;
 
-    display: ${(props) => (props.display ? "flex" : "none")};
+    display: flex;
     align-items: center;
     justify-content: center;
 

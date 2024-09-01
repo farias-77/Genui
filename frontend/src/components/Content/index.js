@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 import { RiAccountCircleLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa6";
@@ -79,9 +80,20 @@ export default function Content() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 4000);
+        const promise = axios.get(
+            "http://localhost:8080/orquestrador/fetch_insights"
+        );
+
+        promise
+            .then((response) => {
+                setCards(response.data);
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 3000);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }, []);
 
     useEffect(() => {
@@ -196,6 +208,8 @@ export default function Content() {
         },
     };
 
+    console.log({ isLoading });
+
     return (
         <>
             <Container>
@@ -233,12 +247,16 @@ export default function Content() {
                                     >
                                         <h1>{card.title}</h1>
                                         <p>{card.description}</p>
-                                        <div>
-                                            <p>{card.action}</p>
+                                        {card?.action ? (
                                             <div>
-                                                <FaArrowRight />
+                                                <p>{card.action.type}</p>
+                                                <div>
+                                                    <FaArrowRight />
+                                                </div>
                                             </div>
-                                        </div>
+                                        ) : (
+                                            <></>
+                                        )}
                                     </Suggestion>
                                 );
                             })}
@@ -329,24 +347,28 @@ export default function Content() {
                 </AccountSummary>
             </Container>
 
-            <StyledLoadingScreen display={isLoading}>
-                <LoadingContent>
-                    <LoadingMessage>
-                        Estamos montando a sua interface personalizada...
-                    </LoadingMessage>
-                    <MutatingDots
-                        visible={true}
-                        height="100"
-                        width="100"
-                        color="#000"
-                        secondaryColor="#000"
-                        radius="12.5"
-                        ariaLabel="mutating-dots-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                    />
-                </LoadingContent>
-            </StyledLoadingScreen>
+            {isLoading ? (
+                <StyledLoadingScreen>
+                    <LoadingContent>
+                        <LoadingMessage>
+                            Estamos montando a sua interface personalizada...
+                        </LoadingMessage>
+                        <MutatingDots
+                            visible={true}
+                            height="100"
+                            width="100"
+                            color="#000"
+                            secondaryColor="#000"
+                            radius="12.5"
+                            ariaLabel="mutating-dots-loading"
+                            wrapperStyle={{}}
+                            wrapperClass=""
+                        />
+                    </LoadingContent>
+                </StyledLoadingScreen>
+            ) : (
+                <> </>
+            )}
         </>
     );
 }
