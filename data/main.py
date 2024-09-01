@@ -11,4 +11,4 @@ app.include_router(orquestrador_router, prefix="/orquestrador")
 if __name__ == "__main__":
     import uvicorn
     print("Executando...")
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8080)
