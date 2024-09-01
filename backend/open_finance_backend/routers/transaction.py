@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import List
 from ..models import Transaction
-from ..database.transaction import get_transactions
+from ..database import get_transactions
 
 router = APIRouter(
     prefix="/transactions",

@@ -11,7 +11,7 @@ def get_corporate_purchases(chunk_size=1000, skip_rows=0):
     :return: Lista de dicionários contendo dados do chunk.
     """
     try:
-        df_chunk = pd.read_csv(f"{DATA_PATH}corporate_purchase.csv", skiprows=range(1, skip_rows), nrows=chunk_size)
+        df_chunk = pd.read_csv(f"{DATA_PATH}corporate-purchase.csv", skiprows=range(1, skip_rows), nrows=chunk_size)
         return df_chunk.to_dict(orient='records')
     except FileNotFoundError:
         print("Erro: O arquivo 'corporate_purchase.csv' não foi encontrado.")

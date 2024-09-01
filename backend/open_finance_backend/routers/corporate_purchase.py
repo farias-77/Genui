@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException, Query
 from typing import List
-from app.models import CorporatePurchase
-from app.database.corporate_purchase import get_corporate_purchases
+from open_finance_backend.models import CorporatePurchase
+from open_finance_backend.database import get_corporate_purchases
 
 router = APIRouter(
-    prefix="/corporate-purchases",
+    prefix="/corporate_purchases",
     tags=["Corporate Purchases"]
 )
 
