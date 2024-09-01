@@ -14,5 +14,13 @@
             "type": "invoice early payment and strategic purchase"
         },
         "reason": "Ao antecipar o recebimento dessas faturas, sua empresa pode adquirir carne a um preço reduzido, aproveitando as condições do mercado. Isso não só garante uma economia direta de R$ 425027.78, mas também melhora a margem de lucro e a competitividade do restaurante ao reduzir os custos operacionais. Essa estratégia permite alocar recursos de forma eficiente, maximizando o retorno sobre o investimento."
-    }
+    },
+    {
+        "title": "Atenção ao Fluxo de Caixa para a Próxima Semana",
+        "description": "Na próxima semana, você tem pagamentos a receber dos clientes João Silva, Maria Oliveira. No entanto, é importante que você planeje seu fluxo de caixa com cuidado, considerando a possibilidade de que esse dinheiro não entre conforme o esperado.",
+        "action": {
+          "type": "plan cash flow"
+        },
+        "reason": "Os clientes João Silva e Maria Oliveira têm um histórico de inadimplência, o que aumenta o risco de não pagamento. Prepare-se para gerenciar seu fluxo de caixa de forma eficiente caso esses pagamentos não sejam realizados."
+      }
 ]
