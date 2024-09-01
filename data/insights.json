@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "title": "Pague antecipadamente",
+        "description": "As seguintes faturas podem ser pagas antecipadamente, resultando em uma economia significativa: Fatura 5396358798245888 que vence em 2024-08-25, proporcionando uma economia de R$ 187760.82; Fatura 6019609152978944 que vence em 2024-08-27, proporcionando uma economia de R$ 136615.62; Fatura 4666043431649280 que vence em 2024-08-27, proporcionando uma economia de R$ 76791.68; Fatura 6055826129158144 que vence em 2024-08-25, proporcionando uma economia de R$ 19341.30; Fatura 6395656021213184 que vence em 2024-08-23, proporcionando uma economia de R$ 5518.36.",
+        "action": {
+            "type": "invoice early payment"
+        },
+        "reason": "Realizar os pagamentos antecipados dessas faturas permite uma economia total substancial de R$ 425027.78. Esse valor pode ser alocado em outras áreas estratégicas da empresa, aumentando a eficiência financeira e o fluxo de caixa."
+    },
+    {
+        "title": "Oportunidade de Compra",
+        "description": "Ao antecipar os recebíveis das seguintes faturas, você pode aproveitar uma queda momentânea nos preços da carne, um insumo essencial para o seu restaurante, gerando uma economia significativa e aumentando a margem de lucro: Fatura 5396358798245888 que vence em 2024-08-25, proporcionando uma economia de R$ 187760.82; Fatura 6019609152978944 que vence em 2024-08-27, proporcionando uma economia de R$ 136615.62; Fatura 4666043431649280 que vence em 2024-08-27, proporcionando uma economia de R$ 76791.68; Fatura 6055826129158144 que vence em 2024-08-25, proporcionando uma economia de R$ 19341.30; Fatura 6395656021213184 que vence em 2024-08-23, proporcionando uma economia de R$ 5518.36.",
+        "action": {
+            "type": "invoice early payment and strategic purchase"
+        },
+        "reason": "Ao antecipar o recebimento dessas faturas, sua empresa pode adquirir carne a um preço reduzido, aproveitando as condições do mercado. Isso não só garante uma economia direta de R$ 425027.78, mas também melhora a margem de lucro e a competitividade do restaurante ao reduzir os custos operacionais. Essa estratégia permite alocar recursos de forma eficiente, maximizando o retorno sobre o investimento."
+    }
+]

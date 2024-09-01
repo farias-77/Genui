@@ -72,7 +72,11 @@ def get_early_invoice_insight():
     eligible_invoices = apply_insight_generation(invoices_clean, due_days_threshold)
     early_invoice_insight = select_invoices(eligible_invoices)
     
-    return early_invoice_insight
+    return {
+        'type': 'early invoice',
+        'content': early_invoice_insight
+    }
+    
 
 if __name__ == "__main__":
     print(get_early_invoice_insight())
