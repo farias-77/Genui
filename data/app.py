@@ -1,1 +1,0 @@
-# centralizar chamadas de modelo aqui 
